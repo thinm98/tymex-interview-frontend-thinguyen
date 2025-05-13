@@ -127,4 +127,42 @@ display:flex;
 flex-direction: column;
 gap:16px;
 align-items: center;
+width: -webkit-fill-available;
+`;
+export const StyledListCategory = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+gap: 16px;
+width: 100%;
+overflow-x: auto;
+padding: 8px 0;
+scrollbar-width : none;
+
+`;
+export const StyledProductsWrapper = styled.div`
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 1600px;
+    max-height: 1300px;
+    padding: 0 20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #FFC107 #181c2a;
+  &::-webkit-scrollbar {
+    width: 12px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    background: #181c2a;
+    border-left: 1px solid #444;
+    border-right: 1px solid #444;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #FFC107;
+    border-radius: 6px;
+    min-height: 60px;
+    border: 3px solid #181c2a;
+  }
 `;

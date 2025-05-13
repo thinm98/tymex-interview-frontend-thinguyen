@@ -37,11 +37,8 @@ export const Label = styled.div`
 export const StyledLayoutFilter = styled.div`
 
   .layout-filter__btn {
-    ${media.xl`
-      display: none;
-    `}
     ${media.lg`
-      display: block;
+      display: none;
     `}
     ${media.md`
       display: block;
@@ -51,9 +48,6 @@ export const StyledLayoutFilter = styled.div`
     `}
   }
   .layout-filter__full{
-    ${media.xl`
-      display: block;
-    `}
     ${media.lg`
       display: block;
     `}

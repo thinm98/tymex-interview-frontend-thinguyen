@@ -140,7 +140,7 @@ const Filter = ({ filterParams, onSearch }: Props) => {
                     placement="bottomRight"
                     color="#060606f5"
                 >
-                    <Button icon={<FilterOutlined />} type="primary" />
+                    <Button icon={<FilterOutlined />} />
                 </Popover>
             </div>
             <div className="layout-filter__full">

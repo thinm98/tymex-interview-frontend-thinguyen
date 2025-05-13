@@ -6,7 +6,7 @@ import Filter from "./components/filter"
 import ListProducts from "./components/products"
 import ProductsSkeleton from "./components/products/skeleton"
 import productQueries from "./queries"
-import { StyledLayoutListProduct, StyledProductsEmpty, StyledProductsWrapper } from "./styled"
+import { StyledLayoutListProduct, StyledProductsEmpty } from "./styled"
 export const LIMIT_PRODUCT = 20
 const Products = () => {
     const [filterParams, setFilterParams] = useState<IFilterParams>({
@@ -40,11 +40,8 @@ const Products = () => {
     }, [isLoading, productList, hasNextPage, isFetching])
     return (
         <StyledLayoutListProduct>
-            <StyledProductsWrapper>
-
-                <Filter filterParams={filterParams} onSearch={handleSearch} />
-                {UIProductList}
-            </StyledProductsWrapper>
+            <Filter filterParams={filterParams} onSearch={handleSearch} />
+            {UIProductList}
         </StyledLayoutListProduct>
     )
 }
