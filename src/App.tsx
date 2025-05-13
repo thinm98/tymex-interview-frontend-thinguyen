@@ -4,7 +4,7 @@ import { Layout } from 'antd'
 import Home from './pages/Home'
 import 'antd/dist/reset.css'
 import './App.css'
-
+import ListProducts from './pages/Products'
 const { Header, Content } = Layout
 
 const StyledLayout = styled(Layout)`
@@ -33,6 +33,7 @@ function App() {
       <StyledContent>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ListProducts />} />
         </Routes>
       </StyledContent>
     </StyledLayout>
