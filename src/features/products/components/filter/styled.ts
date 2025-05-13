@@ -7,14 +7,8 @@ export const FilterWrapper = styled.div`
   padding: 24px;
   width: 372px;
   color: #fff;
-  .ant-input,
-  .ant-select-selector {
-    background: #23263a !important;
-    color: #fff !important;
-    border: none !important;
-  }
   .ant-slider-track {
-    background: linear-gradient(90deg, #ff5c97 0%, #ffc371 100%);
+    background: linear-gradient(135deg, #DA458F, #DA34DD);
   }
   .ant-slider-handle {
     border-color: #ff5c97;

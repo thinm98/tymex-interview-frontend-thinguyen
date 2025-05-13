@@ -6,7 +6,8 @@ import Filter from "./components/filter"
 import ListProducts from "./components/products"
 import ProductsSkeleton from "./components/products/skeleton"
 import productQueries from "./queries"
-import { StyledLayoutListProduct, StyledProductsEmpty } from "./styled"
+import { StyledFooter, StyledLayoutListProduct, StyledProductsEmpty } from "./styled"
+import BannerImage from "./components/bannerImage"
 export const LIMIT_PRODUCT = 20
 const Products = () => {
     const [filterParams, setFilterParams] = useState<IFilterParams>({
@@ -27,22 +28,33 @@ const Products = () => {
     const handleSearch = (params: IFilterParams) => {
         setFilterParams(params)
     }
+    const handleChangeCategory = (category: string) => {
+        if (category === "All") {
+            setFilterParams({ ...filterParams, category: undefined })
+        } else {
+            setFilterParams({ ...filterParams, category })
+        }
+    }
     const UIProductList = useMemo(() => {
         if (isLoading) {
             return <ProductsSkeleton />
         }
-        if (productList?.length === 0) {
-            return <StyledProductsEmpty>
-                <Empty description="No products" />
-            </StyledProductsEmpty>
-        }
-        return <ListProducts isLoadingLoadMore={isFetching} data={productList || []} onLoadMore={fetchNextPage} isHasNextPage={hasNextPage} />
+       
+        return <ListProducts isLoadingLoadMore={isFetching} data={productList || []} onLoadMore={fetchNextPage} isHasNextPage={hasNextPage}
+            onChangeCategory={handleChangeCategory}
+        />
     }, [isLoading, productList, hasNextPage, isFetching])
     return (
-        <StyledLayoutListProduct>
-            <Filter filterParams={filterParams} onSearch={handleSearch} />
-            {UIProductList}
-        </StyledLayoutListProduct>
+        <>
+            <BannerImage />
+            <StyledLayoutListProduct>
+                <Filter filterParams={filterParams} onSearch={handleSearch} />
+                {UIProductList}
+            </StyledLayoutListProduct>
+            <StyledFooter>
+                <img src="./images/body-footer.png" alt="logo" />
+            </StyledFooter>
+        </>
     )
 }
 

@@ -5,6 +5,10 @@ import { Slider } from "antd"
 import { FilterWrapper, Label, Option, StyledLayoutFilter } from "./styled"
 import { useState, useEffect } from "react"
 import { Popover } from "antd"
+import ButtonComponent from "@/assets/components/buttonComponent"
+import InputComponent from "@/assets/components/inputComponent"
+import SelectComponent from "@/assets/components/selectComponent"
+import XIcon from "@/assets/icons/xIcon"
 type Props = {
     filterParams: IFilterParams
     onSearch: (params: IFilterParams) => void
@@ -34,6 +38,7 @@ const Filter = ({ filterParams, onSearch }: Props) => {
         setFilter(initialFilterParams)
     }
     const funcOnSearch = () => {
+        setOpen(false)
         onSearch(filter)
     }
     useEffect(() => {
@@ -46,7 +51,7 @@ const Filter = ({ filterParams, onSearch }: Props) => {
     }, [filterParams])
 
     const UIFilter = <FilterWrapper>
-        <Input
+        <InputComponent
             placeholder="Quick search"
             prefix={<SearchOutlined />}
             value={filter.q}
@@ -70,7 +75,7 @@ const Filter = ({ filterParams, onSearch }: Props) => {
         </div>
 
         <Label>TIER</Label>
-        <Select
+        <SelectComponent
             value={filter.tier}
             onChange={val => updateFilter("tier", val)}
             style={{ width: "100%", marginBottom: 16 }}
@@ -79,10 +84,10 @@ const Filter = ({ filterParams, onSearch }: Props) => {
             <Option value="basic">Basic</Option>
             <Option value="premium">Premium</Option>
             <Option value="deluxe">Deluxe</Option>
-        </Select>
+        </SelectComponent>
 
         <Label>THEME</Label>
-        <Select
+        <SelectComponent
             value={filter.theme}
             onChange={val => updateFilter("theme", val)}
             style={{ width: "100%", marginBottom: 16 }}
@@ -91,40 +96,40 @@ const Filter = ({ filterParams, onSearch }: Props) => {
             <Option value="colorful">Colorful</Option>
             <Option value="light">Light</Option>
             <Option value="dark">Dark</Option>
-        </Select>
+        </SelectComponent>
 
         <Label>TIME</Label>
-        <Select
+        <SelectComponent
             value={filter.time}
             onChange={val => updateFilter("time", val)}
             style={{ width: "100%", marginBottom: 16 }}
         >
             <Option value="latest">Latest</Option>
             <Option value="oldest">Oldest</Option>
-        </Select>
+        </SelectComponent>
 
         <Label>PRICE</Label>
-        <Select
+        <SelectComponent
             value={filter._order}
             onChange={val => updateFilter("_order", val)}
             style={{ width: "100%", marginBottom: 24 }}
         >
             <Option value="asc">Low to high</Option>
             <Option value="desc">High to low</Option>
-        </Select>
+        </SelectComponent>
 
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Button
-                type="link"
-                icon={<ReloadOutlined />}
+            <Button    
+                type="text"
+                icon={<XIcon     />}
                 onClick={onReset}
-                style={{ padding: 0 }}
+                style={{ padding: 0, color: "#fff" , fontWeight: 600, fontSize: 16}}
             >
                 Reset filter
             </Button>
-            <Button type="primary" onClick={funcOnSearch}>
+            <ButtonComponent onClick={funcOnSearch} size="large" style={{ width: 150 }}>
                 Search
-            </Button>
+            </ButtonComponent>
         </div>
     </FilterWrapper>
     return (
@@ -140,7 +145,7 @@ const Filter = ({ filterParams, onSearch }: Props) => {
                     placement="bottomRight"
                     color="#060606f5"
                 >
-                    <Button icon={<FilterOutlined />} />
+                    <ButtonComponent icon={<FilterOutlined />} />
                 </Popover>
             </div>
             <div className="layout-filter__full">

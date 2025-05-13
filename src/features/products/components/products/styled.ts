@@ -1,6 +1,6 @@
 import { HeartFilled } from "@ant-design/icons";
 import { styled } from "styled-components";
-
+import { media } from "@/utils/media";
 export const Card = styled.div`
   background: #181c2a;
   border-radius: 16px;
@@ -123,22 +123,7 @@ export const StyledProductsSkeleton = styled.div`
 `;
 export const StyledLayoutListProduct = styled.div`
 flex:1;
-display:flex;
-flex-direction: column;
-gap:16px;
-align-items: center;
-width: -webkit-fill-available;
-`;
-export const StyledListCategory = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: flex-start;
-gap: 16px;
 width: 100%;
-overflow-x: auto;
-padding: 8px 0;
-scrollbar-width : none;
-
 `;
 export const StyledProductsWrapper = styled.div`
     display: flex;
@@ -165,4 +150,54 @@ export const StyledProductsWrapper = styled.div`
     min-height: 60px;
     border: 3px solid #181c2a;
   }
+`;
+
+export const StyledListCategory = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 16px 0 16px 16px;
+  background: transparent;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  width: 100%;
+  ${media.lg`
+   width: 500px;
+  `}
+
+  
+  
+`;
+
+export const CategoryButton = styled.button<{ $active: boolean }>`
+  background: ${({ $active }) =>
+    $active
+      ? "linear-gradient(90deg, #ff4ecd 0%, #6f1aff 100%)"
+      : "rgba(120, 60, 150, 0.5)"};
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  outline: none;
+  &:hover {
+    background: linear-gradient(90deg, #ff4ecd 0%, #6f1aff 100%);
+  }
+`;
+
+export const ArrowButton = styled.button`
+  background: transparent;
+  border: none;
+  color: #ff4ecd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  cursor: pointer;
+  font-size: 1.5rem;
 `;
