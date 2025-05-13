@@ -1,12 +1,11 @@
 import { IFilterParams } from "@/types"
 import { useInfiniteQuery } from "@tanstack/react-query"
-import { Empty } from "antd"
 import { useMemo, useState } from "react"
 import Filter from "./components/filter"
 import ListProducts from "./components/products"
 import ProductsSkeleton from "./components/products/skeleton"
 import productQueries from "./queries"
-import { StyledFooter, StyledLayoutListProduct, StyledProductsEmpty } from "./styled"
+import { StyledFooter, StyledLayoutListProduct } from "./styled"
 import BannerImage from "./components/bannerImage"
 export const LIMIT_PRODUCT = 20
 const Products = () => {

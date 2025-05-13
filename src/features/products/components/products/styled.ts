@@ -124,6 +124,7 @@ export const StyledProductsSkeleton = styled.div`
 export const StyledLayoutListProduct = styled.div`
 flex:1;
 width: 100%;
+min-width: 0;
 `;
 export const StyledProductsWrapper = styled.div`
     display: flex;
@@ -158,13 +159,9 @@ export const StyledListCategory = styled.div`
   overflow-x: auto;
   gap: 20px;
   padding: 16px 0 16px 16px;
-  background: transparent;
-  box-sizing: border-box;
   scrollbar-width: none;
   width: 100%;
-  ${media.lg`
-   width: 500px;
-  `}
+  
 
   
   

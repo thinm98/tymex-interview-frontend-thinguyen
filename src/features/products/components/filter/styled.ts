@@ -4,9 +4,7 @@ import { media } from "@/utils/media";
 export const { Option } = Select;
 
 export const FilterWrapper = styled.div`
-  padding: 24px;
-  width: 372px;
-  color: #fff;
+
   .ant-slider-track {
     background: linear-gradient(135deg, #DA458F, #DA34DD);
   }
@@ -29,16 +27,30 @@ export const Label = styled.div`
   color: #fff;
 `;
 export const StyledLayoutFilter = styled.div`
+  padding: 24px;
+  width: 372px;
 
+  ${media.md`
+    width: 100%;
+    padding: 8px 0;
+  `}
+  ${media.sm`
+    width: 100%;
+    padding: 8px 0;
+  `}
+  color: #fff;
   .layout-filter__btn {
     ${media.lg`
       display: none;
     `}
     ${media.md`
-      display: block;
+      display: flex;
+      justify-content: flex-end;
+
     `}
     ${media.sm`
-      display: block;
+      display: flex;
+      justify-content: flex-end;
     `}
   }
   .layout-filter__full{

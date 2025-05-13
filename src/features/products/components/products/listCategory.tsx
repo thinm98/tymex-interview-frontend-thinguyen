@@ -32,7 +32,6 @@ export default function CategoryFilter({ onChangeCategory }: Props) {
   };
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
       <StyledListCategory ref={listRef}>
         {categories.map((cat) => (
         <ButtonComponent unActive={active !== cat} onClick={() => {
@@ -41,9 +40,5 @@ export default function CategoryFilter({ onChangeCategory }: Props) {
         }}>{cat}</ButtonComponent>
         ))}
       </StyledListCategory>
-      <ArrowButton onClick={scrollRight}>
-        {/* <FaChevronRight /> */}
-      </ArrowButton>
-    </div>
   );
 }
