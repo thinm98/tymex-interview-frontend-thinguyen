@@ -1,5 +1,5 @@
 import { api } from './api';
-
+import { IFilterParams } from '@/types';
 export interface Author {
     firstName: string;
     lastName: string;
@@ -23,8 +23,8 @@ export interface Product {
 }
 
 export const productsService = {
-    getProducts: async (): Promise<Product[]> => {
-        const response = await api.get<Product[]>('/products');
+    getProducts: async (filterParams: IFilterParams): Promise<Product[]> => {
+        const response = await api.get<Product[]>('/products', { params: filterParams });
         return response.data;
     },
 

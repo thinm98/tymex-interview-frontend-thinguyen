@@ -19,3 +19,17 @@ export interface IProduct {
     imageId: number;
     author: IAuthor;
 }
+
+export interface IFilterParams {
+    _order?: "asc" | "desc" | undefined;
+    _sort?: "createdAt" | "price" | undefined;
+    _limit?: number;
+    _page?: number;
+    category?: string;
+    q?: string;
+    title_like?: string;
+    priceRange?: [number, number];
+    tier?: string;
+    theme?: string;
+    time?: string;
+}

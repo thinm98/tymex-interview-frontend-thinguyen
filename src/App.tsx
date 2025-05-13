@@ -1,41 +1,37 @@
 import { Routes, Route } from 'react-router-dom'
 import styled from 'styled-components'
-import { Layout } from 'antd'
-import Home from './pages/Home'
+import { Layout, Spin } from 'antd'
+import { Suspense, lazy } from 'react'
 import 'antd/dist/reset.css'
 import './App.css'
-import ListProducts from './pages/Products'
-const { Header, Content } = Layout
+
+
+// Lazy load components
+const Home = lazy(() => import('./pages/Home'))
+const ListProducts = lazy(() => import('./pages/Products'))
 
 const StyledLayout = styled(Layout)`
   min-height: 100vh;
+  background: url("/images/bg-body.png") no-repeat center center;
+  background-size: cover;
 `
 
-const StyledHeader = styled(Header)`
-  background: #fff;
-  padding: 0 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-`
 
-const StyledContent = styled(Content)`
-  padding: 24px;
-  background: #fff;
-  margin: 24px;
-  min-height: 280px;
-`
+const LoadingFallback = () => (
+  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+    <Spin size="large" />
+  </div>
+)
 
 function App() {
   return (
     <StyledLayout>
-      <StyledHeader>
-        <h1>My App</h1>
-      </StyledHeader>
-      <StyledContent>
+      <Suspense fallback={<LoadingFallback />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<ListProducts />} />
         </Routes>
-      </StyledContent>
+      </Suspense>
     </StyledLayout>
   )
 }
