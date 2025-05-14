@@ -10,12 +10,12 @@ const Navigation: React.FC = () => {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigationItems = [
-        { label: 'Home', to: '/' },
-        { label: 'About Us', to: '/about' },
+        { label: 'HOME', to: '/' },
+        { label: 'ABOUT US', to: '/about' },
         { label: 'OUR TEAMS', to: '/our-teams' },
-        { label: 'Marketplace', to: '/products' },
-        { label: 'Roadmap', to: '/roadmap' },
-        { label: 'Whitepaper', to: '/whitepaper' },
+        { label: 'MARKETPLACE', to: '/products' },
+        { label: 'ROADMAP', to: '/roadmap' },
+        { label: 'WHITEPAPER', to: '/whitepaper' },
     ]
     const isActive = (path: string) => location.pathname === path;
     return (
